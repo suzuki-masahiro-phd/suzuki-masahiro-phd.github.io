@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masahiro Suzuki</title>
+<meta name="description" content="Academic website of Masahiro Suzuki.">
+<style>
+:root{--text:#20262d;--muted:#68737d;--line:#e5e8eb;--link:#225f7c;--max:980px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--text);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+header{padding:36px 0 18px;border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.brand{font-weight:650;color:var(--text)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.94rem}.nav a{color:var(--text)}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(230px,.7fr);gap:64px;align-items:center;padding:70px 0 58px}
+h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1;letter-spacing:-.055em;margin:0}
+.role{color:var(--muted);font-size:1.13rem;margin:17px 0 0}.intro{font-size:1.14rem;margin:26px 0 0}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+.btn{border:1px solid #ced5da;border-radius:8px;padding:9px 14px;color:var(--text)}
+.btn.primary{background:var(--text);color:#fff;border-color:var(--text)}
+.photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 42%;border-radius:10px}
+section{padding:46px 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:170px 1fr;gap:38px}
+h2{margin:0;font-size:1.3rem;letter-spacing:-.02em}
+h3{margin:0 0 5px;font-size:1.02rem}
+p{margin:0 0 1em}.items{display:grid;gap:24px}.muted{color:var(--muted)}
+.paper{padding-bottom:24px;border-bottom:1px solid var(--line)}
+.paper:last-child{border-bottom:0}.paper-title{font-weight:650;line-height:1.45}
+.paper-meta{color:var(--muted);font-size:.95rem;margin-top:4px}.paper-link{margin-top:6px}
+.timeline{display:grid;gap:25px}.record{display:grid;grid-template-columns:110px 1fr;gap:18px}
+.period{color:var(--muted);font-variant-numeric:tabular-nums}.record-title{font-weight:650}
+.record-meta{color:var(--muted);font-size:.95rem}.record-desc{margin-top:5px}
+.award{display:grid;grid-template-columns:58px 1fr;gap:16px;margin:8px 0}.year{color:var(--muted)}
+.contact{display:flex;gap:18px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.9rem}
+@media(max-width:760px){
+ .hero{grid-template-columns:1fr;gap:32px;padding-top:46px}
+ .photo{width:min(78%,360px);order:-1}
+ .grid{grid-template-columns:1fr;gap:15px}
+ .record{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="brand" id="brand"></a>
+      <div class="nav">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#employment">Employment</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1 id="name"></h1>
+      <p class="role"><span id="position"></span> · <span id="institution"></span></p>
+      <p class="intro" id="intro"></p>
+      <div class="actions">
+        <a class="btn primary" id="cv">CV</a>
+        <a class="btn" id="scholar">Google Scholar</a>
+        <a class="btn" id="email">Email</a>
+      </div>
+    </div>
+    <img class="photo" id="photo" alt="Portrait of Masahiro Suzuki">
+  </div>
+
+  <section id="research">
+    <div class="grid"><h2>Research</h2><div class="items" id="research-list"></div></div>
+  </section>
+
+  <section id="publications">
+    <div class="grid">
+      <h2>Selected publications</h2>
+      <div>
+        <div class="items" id="publication-list"></div>
+        <p><a id="all-pubs">View all publications on Google Scholar →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="employment">
+    <div class="grid"><h2>Employment</h2><div class="timeline" id="employment-list"></div></div>
+  </section>
+
+  <section id="education">
+    <div class="grid"><h2>Education</h2><div class="timeline" id="education-list"></div></div>
+  </section>
+
+  <section id="awards">
+    <div class="grid"><h2>Selected awards</h2><div id="award-list"></div></div>
+  </section>
+
+  <section id="contact">
+    <div class="grid">
+      <h2>Contact</h2>
+      <div class="contact">
+        <a id="contact-email"></a>
+        <a id="contact-scholar">Google Scholar</a>
+        <a id="contact-cv">CV (PDF)</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 <span id="footer-name"></span></div></footer>
+
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+
+Promise.all([
+ fetch('data/profile.json').then(r=>r.json()),
+ fetch('data/research.json').then(r=>r.json()),
+ fetch('data/publications.json').then(r=>r.json()),
+ fetch('data/employment.json').then(r=>r.json()),
+ fetch('data/education.json').then(r=>r.json()),
+ fetch('data/awards.json').then(r=>r.json())
+]).then(([p,r,pubs,employment,education,awards])=>{
+ document.title=p.name+' | Academic website';
+ for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
+ document.getElementById('position').textContent=p.position;
+ document.getElementById('institution').textContent=p.institution;
+ document.getElementById('intro').textContent=p.intro;
+ document.getElementById('photo').src=p.photo;
+ document.getElementById('cv').href=p.cv;
+ document.getElementById('scholar').href=p.google_scholar;
+ document.getElementById('email').href='mailto:'+p.email;
+ document.getElementById('all-pubs').href=p.google_scholar;
+ document.getElementById('contact-email').href='mailto:'+p.email;
+ document.getElementById('contact-email').textContent=p.email;
+ document.getElementById('contact-scholar').href=p.google_scholar;
+ document.getElementById('contact-cv').href=p.cv;
+
+ document.getElementById('research-list').innerHTML=r.map(x=>
+   `<div><h3>${esc(x.title)}</h3><div class="muted">${esc(x.description)}</div></div>`
+ ).join('');
+
+ document.getElementById('publication-list').innerHTML=pubs.map(x=>
+   `<article class="paper">
+      <div class="paper-title">${esc(x.title)}</div>
+      <div class="paper-meta">${esc(x.authors)} · ${esc(x.venue)} · ${esc(x.year)}</div>
+      <div class="paper-link"><a href="${esc(x.url)}">${esc(x.link_label || 'Paper')} →</a></div>
+    </article>`
+ ).join('');
+
+ document.getElementById('employment-list').innerHTML=employment.map(x=>
+   `<div class="record">
+      <div class="period">${esc(x.period)}</div>
+      <div>
+        <div class="record-title">${esc(x.role)}</div>
+        <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
+        <div class="record-desc">${esc(x.description)}</div>
+      </div>
+    </div>`
+ ).join('');
+
+ document.getElementById('education-list').innerHTML=education.map(x=>
+   `<div class="record">
+      <div class="period">${esc(x.period)}</div>
+      <div>
+        <div class="record-title">${esc(x.degree)}</div>
+        <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
+        <div class="record-desc">${esc(x.details)}</div>
+      </div>
+    </div>`
+ ).join('');
+
+ document.getElementById('award-list').innerHTML=awards.map(x=>
+   `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(x.title)}</span></div>`
+ ).join('');
+}).catch(err=>{
+ console.error(err);
+});
+</script>
+</body>
+</html>
