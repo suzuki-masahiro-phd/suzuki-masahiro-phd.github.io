@@ -53,22 +53,6 @@ content:
         label: Google Scholar
         type: string
 
-  - name: research
-    label: Research
-    type: file
-    path: data/research.json
-    format: json
-    list: true
-    fields:
-      - name: title
-        label: Research theme
-        type: string
-        required: true
-      - name: description
-        label: Description
-        type: text
-        required: true
-
   - name: publications
     label: Publications
     type: file
