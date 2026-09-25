@@ -1,8 +1,10 @@
 {
   "name": "Masahiro Suzuki",
+  "name_ja": "鈴木  暢大",
   "position": "Postdoctoral Researcher",
   "institution": "Chalmers University of Technology",
   "intro": "Hi there, welcome to my website! I am currently a postdoctoral researcher at Chalmers University of Technology studying how climate policy and energy transitions co-evolve over time. More specifically, I am interested in understanding whether and to what extent energy transitions can be accelerated by policies to mitigate climate change. We know that climate change is real and that avoiding its dangerous effects requires significant acceleration in decarbonising our energy systems—but to what extent can we realistically achieve such an acceleration, given competing and shifting national priorities as well as industry and public interests?",
+  "intro_ja": "こんにちは。私のウェブサイトへようこそ！現在、チャルマース工科大学で博士研究員として、気候政策とエネルギー転換が時間の経過とともにどのように共進化するのかを研究しています。より具体的には、気候変動を緩和するための政策によって、エネルギー転換をどの程度、またどのように加速できるのかを明らかにしたいと考えています。気候変動が現実のものであり、その危険な影響を回避するには、エネルギーシステムの脱炭素化を大幅に加速する必要があることは明らかです。しかし、競合し変化する各国の優先事項、産業界や市民の利害が存在するなかで、そのような加速を現実的にどこまで達成できるのでしょうか。",
   "photo": "/media/images/masahiro-suzuki.jpg",
   "cv": "/media/docs/Masahiro-Suzuki-CV.pdf",
   "email": "masahiro.suzuki@chalmers.se",

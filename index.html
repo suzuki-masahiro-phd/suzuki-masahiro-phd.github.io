@@ -36,165 +36,37 @@ p{margin:0 0 1em}.items{display:grid;gap:24px}
 .award{display:grid;grid-template-columns:58px 1fr;gap:16px;margin:8px 0}.year{color:var(--muted)}
 .contact{display:flex;gap:18px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.9rem}
-@media(max-width:760px){
- .hero{grid-template-columns:1fr;gap:32px;padding-top:46px}
- .photo{width:min(78%,360px);order:-1}
- .grid{grid-template-columns:1fr;gap:15px}
- nav{align-items:flex-start}
- .nav-controls{width:100%;justify-content:flex-end}
-}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:32px;padding-top:46px}.photo{width:min(78%,360px);order:-1}.grid{grid-template-columns:1fr;gap:15px}nav{align-items:flex-start}.nav-controls{width:100%;justify-content:flex-end}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav>
-      <a href="#" class="brand" id="brand"></a>
-      <div class="nav">
-        <a href="#publications" id="nav-publications">Publications</a>
-        <a href="#contact" id="nav-contact">Contact</a>
-      </div>
-      <div class="nav-controls">
-        <div class="lang-switch" aria-label="Language selector">
-          <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">English</button>
-          <button class="lang-btn" type="button" data-lang="ja" aria-pressed="false">日本語</button>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-
+<header><div class="wrap"><nav>
+<a href="#" class="brand" id="brand"></a>
+<div class="nav"><a href="#publications" id="nav-publications">Publications</a><a href="#contact" id="nav-contact">Contact</a></div>
+<div class="nav-controls"><div class="lang-switch" aria-label="Language selector"><button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">English</button><button class="lang-btn" type="button" data-lang="ja" aria-pressed="false">日本語</button></div></div>
+</nav></div></header>
 <main class="wrap">
-  <div class="hero">
-    <div>
-      <h1 id="name"></h1>
-      <p class="role"><span id="position"></span> · <span id="institution"></span></p>
-      <p class="intro" id="intro"></p>
-      <div class="actions">
-        <a class="btn primary" id="cv">CV</a>
-        <a class="btn" id="scholar">Google Scholar</a>
-        <a class="btn" id="email">Email</a>
-      </div>
-    </div>
-    <img class="photo" id="photo" alt="Portrait of Masahiro Suzuki">
-  </div>
-
-  <section id="publications">
-    <div class="grid">
-      <h2 id="publications-title">Selected publications</h2>
-      <div>
-        <div class="items" id="publication-list"></div>
-        <p><a id="all-pubs">View all publications on Google Scholar →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section id="awards">
-    <div class="grid"><h2 id="awards-title">Selected awards</h2><div id="award-list"></div></div>
-  </section>
-
-  <section id="contact">
-    <div class="grid">
-      <h2 id="contact-title">Contact</h2>
-      <div class="contact">
-        <a id="contact-email"></a>
-        <a id="contact-scholar">Google Scholar</a>
-        <a id="contact-cv">CV (PDF)</a>
-      </div>
-    </div>
-  </section>
+<div class="hero"><div><h1 id="name"></h1><p class="role"><span id="position"></span> · <span id="institution"></span></p><p class="intro" id="intro"></p><div class="actions"><a class="btn primary" id="cv">CV</a><a class="btn" id="scholar">Google Scholar</a><a class="btn" id="email">Email</a></div></div><img class="photo" id="photo" alt="Portrait of Masahiro Suzuki"></div>
+<section id="publications"><div class="grid"><h2 id="publications-title">Selected publications</h2><div><div class="items" id="publication-list"></div><p><a id="all-pubs">View all publications on Google Scholar →</a></p></div></div></section>
+<section id="awards"><div class="grid"><h2 id="awards-title">Selected awards</h2><div id="award-list"></div></div></section>
+<section id="contact"><div class="grid"><h2 id="contact-title">Contact</h2><div class="contact"><a id="contact-email"></a><a id="contact-scholar">Google Scholar</a><a id="contact-cv">CV (PDF)</a></div></div></section>
 </main>
-
 <footer><div class="wrap"><span id="footer-year">© 2026</span> <span id="footer-name"></span></div></footer>
-
 <script>
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-const translations = {
-  en: {
-    nav: { publications: 'Publications', contact: 'Contact' },
-    headings: { publications: 'Selected publications', awards: 'Selected awards', contact: 'Contact' },
-    actions: { cv: 'CV', scholar: 'Google Scholar', email: 'Email' },
-    allPubs: 'View all publications on Google Scholar →',
-    contactCv: 'CV (PDF)', footerYear: '© 2026'
-  },
-  ja: {
-    nav: { publications: '研究業績', contact: 'お問い合わせ' },
-    headings: { publications: '主な研究業績', awards: '受賞歴', contact: 'お問い合わせ' },
-    actions: { cv: 'CV', scholar: 'Google Scholar', email: 'メール' },
-    allPubs: 'Google Scholar ですべての論文を見る →',
-    contactCv: 'CV (PDF)', footerYear: '© 2026'
-  }
-};
-
-let currentLang = localStorage.getItem('lang') || 'en';
-
-function applyTranslations(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  const t = translations[lang];
-  document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
-
-  for (const [key, value] of Object.entries(t.nav)) {
-    document.getElementById('nav-' + key).textContent = value;
-  }
-  for (const [key, value] of Object.entries(t.headings)) {
-    document.getElementById(key + '-title').textContent = value;
-  }
-  document.getElementById('cv').textContent = t.actions.cv;
-  document.getElementById('scholar').textContent = t.actions.scholar;
-  document.getElementById('email').textContent = t.actions.email;
-  document.getElementById('all-pubs').textContent = t.allPubs;
-  document.getElementById('contact-scholar').textContent = t.actions.scholar;
-  document.getElementById('contact-cv').textContent = t.contactCv;
-  document.getElementById('footer-year').textContent = t.footerYear.replace('2026', new Date().getFullYear());
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    const active = btn.dataset.lang === lang;
-    btn.classList.toggle('active', active);
-    btn.setAttribute('aria-pressed', String(active));
-  });
-}
-
-Promise.all([
-  fetch('data/profile.json').then(r=>r.json()),
-  fetch('data/publications.json').then(r=>r.json()),
-  fetch('data/awards.json').then(r=>r.json())
-]).then(([p,pubs,awards]) => {
-  document.title=p.name+' | Academic website';
-  for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
-
-  document.getElementById('position').textContent=currentLang === 'ja' ? (p.position_ja || p.position) : p.position;
-  document.getElementById('institution').textContent=currentLang === 'ja' ? (p.institution_ja || p.institution) : p.institution;
-  document.getElementById('intro').textContent=currentLang === 'ja' ? (p.intro_ja || p.intro) : p.intro;
-  document.getElementById('photo').src=p.photo;
-  document.getElementById('cv').href=p.cv;
-  document.getElementById('scholar').href=p.google_scholar;
-  document.getElementById('email').href='mailto:'+p.email;
-  document.getElementById('all-pubs').href=p.google_scholar;
-  document.getElementById('contact-email').href='mailto:'+p.email;
-  document.getElementById('contact-email').textContent=p.email;
-  document.getElementById('contact-scholar').href=p.google_scholar;
-  document.getElementById('contact-cv').href=p.cv;
-
-  document.getElementById('publication-list').innerHTML=pubs.map(x=>{
-    const url=x.url || '#';
-    const title=currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
-    const authors=currentLang === 'ja' ? (x.authors_ja || x.authors || '') : (x.authors || '');
-    const venue=currentLang === 'ja' ? (x.venue_ja || x.venue || '') : (x.venue || '');
-    const linkLabel=currentLang === 'ja' ? (x.link_label_ja || x.link_label || '論文') : (x.link_label || 'Paper');
-    return `<article class="paper"><div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a></div><div class="paper-meta">${esc([authors,venue,x.year || ''].filter(Boolean).join(' · '))}</div><div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)} →</a></div></article>`;
-  }).join('');
-
-  document.getElementById('award-list').innerHTML=awards.map(x=>{
-    const title=currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
-    return `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(title)}</span></div>`;
-  }).join('');
-
-  applyTranslations(currentLang);
-}).catch(err=>console.error(err));
-
-document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyTranslations(btn.dataset.lang)));
-applyTranslations(currentLang);
+const translations={en:{nav:{publications:'Publications',contact:'Contact'},headings:{publications:'Selected publications',awards:'Selected awards',contact:'Contact'},actions:{cv:'CV',scholar:'Google Scholar',email:'Email'},allPubs:'View all publications on Google Scholar →',contactCv:'CV (PDF)',footerYear:'© 2026'},ja:{nav:{publications:'研究業績',contact:'お問い合わせ'},headings:{publications:'主な研究業績',awards:'受賞歴',contact:'お問い合わせ'},actions:{cv:'CV',scholar:'Google Scholar',email:'メール'},allPubs:'Google Scholar ですべての論文を見る →',contactCv:'CV (PDF)',footerYear:'© 2026'}};
+let currentLang=localStorage.getItem('lang')||'en';let profile;
+function localized(value,jaValue){return currentLang==='ja'?(jaValue||value):value}
+function applyTranslations(lang){currentLang=lang;localStorage.setItem('lang',lang);const t=translations[lang];document.documentElement.lang=lang==='ja'?'ja':'en';
+for(const[key,value]of Object.entries(t.nav))document.getElementById('nav-'+key).textContent=value;
+for(const[key,value]of Object.entries(t.headings))document.getElementById(key+'-title').textContent=value;
+document.getElementById('cv').textContent=t.actions.cv;document.getElementById('scholar').textContent=t.actions.scholar;document.getElementById('email').textContent=t.actions.email;document.getElementById('all-pubs').textContent=t.allPubs;document.getElementById('contact-scholar').textContent=t.actions.scholar;document.getElementById('contact-cv').textContent=t.contactCv;document.getElementById('footer-year').textContent=t.footerYear.replace('2026',new Date().getFullYear());
+if(profile){document.getElementById('name').textContent=localized(profile.name,profile.name_ja);document.getElementById('brand').textContent=localized(profile.name,profile.name_ja);document.getElementById('footer-name').textContent=localized(profile.name,profile.name_ja);document.getElementById('position').textContent=localized(profile.position,profile.position_ja);document.getElementById('institution').textContent=localized(profile.institution,profile.institution_ja);document.getElementById('intro').textContent=localized(profile.intro,profile.intro_ja)}
+document.querySelectorAll('.lang-btn').forEach(btn=>{const active=btn.dataset.lang===lang;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))})}
+Promise.all([fetch('data/profile.json').then(r=>r.json()),fetch('data/publications.json').then(r=>r.json()),fetch('data/awards.json').then(r=>r.json())]).then(([p,pubs,awards])=>{profile=p;document.title=p.name+' | Academic website';document.getElementById('photo').src=p.photo;document.getElementById('cv').href=p.cv;document.getElementById('scholar').href=p.google_scholar;document.getElementById('email').href='mailto:'+p.email;document.getElementById('all-pubs').href=p.google_scholar;document.getElementById('contact-email').href='mailto:'+p.email;document.getElementById('contact-email').textContent=p.email;document.getElementById('contact-scholar').href=p.google_scholar;document.getElementById('contact-cv').href=p.cv;
+document.getElementById('publication-list').innerHTML=pubs.map(x=>{const url=x.url||'#',title=localized(x.title,x.title_ja),authors=localized(x.authors||'',x.authors_ja),venue=localized(x.venue||'',x.venue_ja),linkLabel=localized(x.link_label||'Paper',x.link_label_ja||'論文');return `<article class="paper"><div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a></div><div class="paper-meta">${esc([authors,venue,x.year||''].filter(Boolean).join(' · '))}</div><div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)} →</a></div></article>`}).join('');
+document.getElementById('award-list').innerHTML=awards.map(x=>`<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(localized(x.title,x.title_ja))}</span></div>`).join('');applyTranslations(currentLang)}).catch(err=>console.error(err));
+document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>applyTranslations(btn.dataset.lang)));applyTranslations(currentLang);
 </script>
 </body>
 </html>
