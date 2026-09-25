@@ -1,9 +1,10 @@
 media:
   - name: images
-    label: Images
+    label: Photos
     input: media/images
     output: /media/images
     categories: [image]
+
   - name: documents
     label: Documents
     input: media/docs
@@ -11,115 +12,146 @@ media:
     categories: [document]
 
 content:
-  - name: homepage
-    label: Homepage
+  - name: introduction
+    label: Introduction
     type: file
-    path: data/site.json
+    path: data/profile.json
     format: json
     fields:
       - name: name
         label: Name
         type: string
         required: true
-
       - name: position
         label: Position
         type: string
         required: true
-
       - name: institution
         label: Institution
         type: string
         required: true
-
       - name: intro
-        label: Introduction
+        label: Introduction / short bio
         type: text
         required: true
-
+        description: This is your main biography at the top of the page.
       - name: photo
         label: Profile photo
         type: image
         options:
           media: images
-
       - name: cv
-        label: CV (PDF)
+        label: CV
         type: file
         options:
           media: documents
           extensions: [pdf]
-
       - name: email
         label: Email
         type: string
-
       - name: google_scholar
-        label: Google Scholar URL
+        label: Google Scholar
         type: string
 
-      - name: github
-        label: GitHub URL
+  - name: research
+    label: Research
+    type: file
+    path: data/research.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Research theme
         type: string
-
-      - name: research
-        label: Research themes
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Title
-            type: string
-            required: true
-          - name: description
-            label: Description
-            type: text
-            required: true
-
-      - name: publications
-        label: Selected publications
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
-        fields:
-          - name: title
-            label: Title
-            type: text
-            required: true
-          - name: authors
-            label: Authors
-            type: text
-          - name: venue
-            label: Journal / venue
-            type: string
-          - name: year
-            label: Year
-            type: string
-          - name: url
-            label: Paper URL / DOI
-            type: string
-
-      - name: about
-        label: About paragraphs
+        required: true
+      - name: description
+        label: Description
         type: text
-        list: true
+        required: true
 
-      - name: awards
-        label: Selected awards
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{year} — {title}"
-        fields:
-          - name: year
-            label: Year
-            type: string
-          - name: title
-            label: Award
-            type: string
+  - name: publications
+    label: Publications
+    type: file
+    path: data/publications.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Title
+        type: text
+        required: true
+      - name: authors
+        label: Authors
+        type: text
+      - name: venue
+        label: Journal / venue
+        type: string
+      - name: year
+        label: Year
+        type: string
+      - name: url
+        label: Link
+        type: string
+      - name: link_label
+        label: Link label
+        type: string
+
+  - name: employment
+    label: Employment
+    type: file
+    path: data/employment.json
+    format: json
+    list: true
+    fields:
+      - name: period
+        label: Period
+        type: string
+      - name: role
+        label: Position
+        type: string
+      - name: institution
+        label: Institution
+        type: string
+      - name: location
+        label: Location
+        type: string
+      - name: description
+        label: Description
+        type: text
+
+  - name: education
+    label: Education
+    type: file
+    path: data/education.json
+    format: json
+    list: true
+    fields:
+      - name: period
+        label: Period
+        type: string
+      - name: degree
+        label: Degree
+        type: string
+      - name: institution
+        label: Institution
+        type: text
+      - name: location
+        label: Location
+        type: string
+      - name: details
+        label: Details
+        type: text
+
+  - name: awards
+    label: Awards
+    type: file
+    path: data/awards.json
+    format: json
+    list: true
+    fields:
+      - name: year
+        label: Year
+        type: string
+      - name: title
+        label: Award
+        type: string
