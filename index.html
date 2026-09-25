@@ -28,11 +28,11 @@ h2{margin:0;font-size:1.3rem;letter-spacing:-.02em}
 h3{margin:0 0 5px;font-size:1.02rem}
 p{margin:0 0 1em}.items{display:grid;gap:24px}.muted{color:var(--muted)}
 .paper{padding-bottom:24px;border-bottom:1px solid var(--line)}
-.paper:last-child{border-bottom:0}.paper-title{font-weight:650;line-height:1.45}
-.paper-meta{color:var(--muted);font-size:.95rem;margin-top:4px}.paper-link{margin-top:6px}
+.paper:last-child{border-bottom:0}.paper-title{font-weight:650;line-height:1.45;color:#111;text-decoration:underline;text-underline-offset:2px}
+.paper-meta{color:var(--muted);font-size:.95rem;margin-top:4px}.paper-link{display:none}
 .timeline{display:grid;gap:25px}.record{display:grid;grid-template-columns:110px 1fr;gap:18px}
 .period{color:var(--muted);font-variant-numeric:tabular-nums}.record-title{font-weight:650}
-.record-meta{color:var(--muted);font-size:.95rem}.record-desc{margin-top:5px}
+.record-meta{color:var(--muted);font-size:.95rem}.record-desc{display:none}
 .award{display:grid;grid-template-columns:58px 1fr;gap:16px;margin:8px 0}.year{color:var(--muted)}
 .contact{display:flex;gap:18px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.9rem}
@@ -145,7 +145,6 @@ Promise.all([
     return `<article class="paper">
        <div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${title}</a></div>
        <div class="paper-meta">${meta}</div>
-       <div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(x.link_label || 'Paper')} →</a></div>
      </article>`;
   }).join('');
 
@@ -155,7 +154,6 @@ Promise.all([
        <div>
          <div class="record-title">${esc(x.role)}</div>
          <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-         <div class="record-desc">${esc(x.description)}</div>
        </div>
      </div>`
   ).join('');
@@ -166,7 +164,6 @@ Promise.all([
        <div>
          <div class="record-title">${esc(x.degree)}</div>
          <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-         <div class="record-desc">${esc(x.details)}</div>
        </div>
      </div>`
   ).join('');
