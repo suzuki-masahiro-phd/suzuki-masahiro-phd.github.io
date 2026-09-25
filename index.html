@@ -50,7 +50,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
     <nav>
       <a href="#" class="brand" id="brand"></a>
       <div class="nav">
-        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#employment">Employment</a>
         <a href="#education">Education</a>
@@ -74,10 +73,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
     </div>
     <img class="photo" id="photo" alt="Portrait of Masahiro Suzuki">
   </div>
-
-  <section id="research">
-    <div class="grid"><h2>Research</h2><div class="items" id="research-list"></div></div>
-  </section>
 
   <section id="publications">
     <div class="grid">
@@ -120,12 +115,11 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 
 Promise.all([
   fetch('data/profile.json').then(r=>r.json()),
-  fetch('data/research.json').then(r=>r.json()),
   fetch('data/publications.json').then(r=>r.json()),
   fetch('data/employment.json').then(r=>r.json()),
   fetch('data/education.json').then(r=>r.json()),
   fetch('data/awards.json').then(r=>r.json())
-]).then(([p,r,pubs,employment,education,awards])=>{
+]).then(([p,pubs,employment,education,awards])=>{
   document.title=p.name+' | Academic website';
   for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
   document.getElementById('position').textContent=p.position;
@@ -140,10 +134,6 @@ Promise.all([
   document.getElementById('contact-email').textContent=p.email;
   document.getElementById('contact-scholar').href=p.google_scholar;
   document.getElementById('contact-cv').href=p.cv;
-
-  document.getElementById('research-list').innerHTML=r.map(x=>
-    `<div><h3>${esc(x.title)}</h3><div class="muted">${esc(x.description)}</div></div>`
-  ).join('');
 
   document.getElementById('publication-list').innerHTML=pubs.map(x=>{
     const url = x.url || '#';
