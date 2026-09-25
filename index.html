@@ -29,14 +29,10 @@ h1{font-size:clamp(2.8rem,7vw,5rem);line-height:1;letter-spacing:-.055em;margin:
 section{padding:46px 0;border-top:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:170px 1fr;gap:38px}
 h2{margin:0;font-size:1.3rem;letter-spacing:-.02em}
-h3{margin:0 0 5px;font-size:1.02rem}
-p{margin:0 0 1em}.items{display:grid;gap:24px}.muted{color:var(--muted)}
+p{margin:0 0 1em}.items{display:grid;gap:24px}
 .paper{padding-bottom:24px;border-bottom:1px solid var(--line)}
 .paper:last-child{border-bottom:0}.paper-title{font-weight:650;line-height:1.45}
 .paper-meta{color:var(--muted);font-size:.95rem;margin-top:4px}.paper-link{margin-top:6px}
-.timeline{display:grid;gap:25px}.record{display:grid;grid-template-columns:110px 1fr;gap:18px}
-.period{color:var(--muted);font-variant-numeric:tabular-nums}.record-title{font-weight:650}
-.record-meta{color:var(--muted);font-size:.95rem}.record-desc{margin-top:5px}
 .award{display:grid;grid-template-columns:58px 1fr;gap:16px;margin:8px 0}.year{color:var(--muted)}
 .contact{display:flex;gap:18px;flex-wrap:wrap}
 footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:.9rem}
@@ -44,7 +40,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
  .hero{grid-template-columns:1fr;gap:32px;padding-top:46px}
  .photo{width:min(78%,360px);order:-1}
  .grid{grid-template-columns:1fr;gap:15px}
- .record{grid-template-columns:1fr;gap:2px}
  nav{align-items:flex-start}
  .nav-controls{width:100%;justify-content:flex-end}
 }
@@ -57,8 +52,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
       <a href="#" class="brand" id="brand"></a>
       <div class="nav">
         <a href="#publications" id="nav-publications">Publications</a>
-        <a href="#employment" id="nav-employment">Employment</a>
-        <a href="#education" id="nav-education">Education</a>
         <a href="#contact" id="nav-contact">Contact</a>
       </div>
       <div class="nav-controls">
@@ -96,14 +89,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
     </div>
   </section>
 
-  <section id="employment">
-    <div class="grid"><h2 id="employment-title">Employment</h2><div class="timeline" id="employment-list"></div></div>
-  </section>
-
-  <section id="education">
-    <div class="grid"><h2 id="education-title">Education</h2><div class="timeline" id="education-list"></div></div>
-  </section>
-
   <section id="awards">
     <div class="grid"><h2 id="awards-title">Selected awards</h2><div id="award-list"></div></div>
   </section>
@@ -126,20 +111,18 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const translations = {
   en: {
-    nav: { publications: 'Publications', employment: 'Employment', education: 'Education', contact: 'Contact' },
-    headings: { publications: 'Selected publications', employment: 'Employment', education: 'Education', awards: 'Selected awards', contact: 'Contact' },
+    nav: { publications: 'Publications', contact: 'Contact' },
+    headings: { publications: 'Selected publications', awards: 'Selected awards', contact: 'Contact' },
     actions: { cv: 'CV', scholar: 'Google Scholar', email: 'Email' },
     allPubs: 'View all publications on Google Scholar →',
-    contactCv: 'CV (PDF)',
-    footerYear: '© 2026'
+    contactCv: 'CV (PDF)', footerYear: '© 2026'
   },
   ja: {
-    nav: { publications: '研究業績', employment: '職歴', education: '学歴', contact: 'お問い合わせ' },
-    headings: { publications: '主な研究業績', employment: '職歴', education: '学歴', awards: '受賞歴', contact: 'お問い合わせ' },
+    nav: { publications: '研究業績', contact: 'お問い合わせ' },
+    headings: { publications: '主な研究業績', awards: '受賞歴', contact: 'お問い合わせ' },
     actions: { cv: 'CV', scholar: 'Google Scholar', email: 'メール' },
     allPubs: 'Google Scholar ですべての論文を見る →',
-    contactCv: 'CV (PDF)',
-    footerYear: '© 2026'
+    contactCv: 'CV (PDF)', footerYear: '© 2026'
   }
 };
 
@@ -152,15 +135,11 @@ function applyTranslations(lang) {
   document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
 
   for (const [key, value] of Object.entries(t.nav)) {
-    const el = document.getElementById('nav-' + key);
-    if (el) el.textContent = value;
+    document.getElementById('nav-' + key).textContent = value;
   }
-
   for (const [key, value] of Object.entries(t.headings)) {
-    const el = document.getElementById(key + '-title');
-    if (el) el.textContent = value;
+    document.getElementById(key + '-title').textContent = value;
   }
-
   document.getElementById('cv').textContent = t.actions.cv;
   document.getElementById('scholar').textContent = t.actions.scholar;
   document.getElementById('email').textContent = t.actions.email;
@@ -179,20 +158,14 @@ function applyTranslations(lang) {
 Promise.all([
   fetch('data/profile.json').then(r=>r.json()),
   fetch('data/publications.json').then(r=>r.json()),
-  fetch('data/employment.json').then(r=>r.json()),
-  fetch('data/education.json').then(r=>r.json()),
   fetch('data/awards.json').then(r=>r.json())
-]).then(([p,pubs,employment,education,awards]) => {
+]).then(([p,pubs,awards]) => {
   document.title=p.name+' | Academic website';
   for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
 
-  const position = currentLang === 'ja' ? (p.position_ja || p.position) : p.position;
-  const institution = currentLang === 'ja' ? (p.institution_ja || p.institution) : p.institution;
-  const intro = currentLang === 'ja' ? (p.intro_ja || p.intro) : p.intro;
-
-  document.getElementById('position').textContent=position;
-  document.getElementById('institution').textContent=institution;
-  document.getElementById('intro').textContent=intro;
+  document.getElementById('position').textContent=currentLang === 'ja' ? (p.position_ja || p.position) : p.position;
+  document.getElementById('institution').textContent=currentLang === 'ja' ? (p.institution_ja || p.institution) : p.institution;
+  document.getElementById('intro').textContent=currentLang === 'ja' ? (p.intro_ja || p.intro) : p.intro;
   document.getElementById('photo').src=p.photo;
   document.getElementById('cv').href=p.cv;
   document.getElementById('scholar').href=p.google_scholar;
@@ -204,62 +177,23 @@ Promise.all([
   document.getElementById('contact-cv').href=p.cv;
 
   document.getElementById('publication-list').innerHTML=pubs.map(x=>{
-    const url = x.url || '#';
-    const title = currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
-    const authors = currentLang === 'ja' ? (x.authors_ja || x.authors || '') : (x.authors || '');
-    const venue = currentLang === 'ja' ? (x.venue_ja || x.venue || '') : (x.venue || '');
-    const year = x.year || '';
-    const meta = [authors, venue, year].filter(Boolean).join(' · ');
-    const linkLabel = currentLang === 'ja' ? (x.link_label_ja || x.link_label || '論文') : (x.link_label || 'Paper');
-    return `<article class="paper">
-       <div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a></div>
-       <div class="paper-meta">${esc(meta)}</div>
-       <div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)} →</a></div>
-     </article>`;
-  }).join('');
-
-  document.getElementById('employment-list').innerHTML=employment.map(x=>{
-    const role = currentLang === 'ja' ? (x.role_ja || x.role) : x.role;
-    const institution = currentLang === 'ja' ? (x.institution_ja || x.institution) : x.institution;
-    const description = currentLang === 'ja' ? (x.description_ja || x.description) : x.description;
-    return `<div class="record">
-       <div class="period">${esc(x.period)}</div>
-       <div>
-         <div class="record-title">${esc(role)}</div>
-         <div class="record-meta">${esc(institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-         <div class="record-desc">${esc(description)}</div>
-       </div>
-     </div>`;
-  }).join('');
-
-  document.getElementById('education-list').innerHTML=education.map(x=>{
-    const degree = currentLang === 'ja' ? (x.degree_ja || x.degree) : x.degree;
-    const institution = currentLang === 'ja' ? (x.institution_ja || x.institution) : x.institution;
-    const details = currentLang === 'ja' ? (x.details_ja || x.details) : x.details;
-    return `<div class="record">
-       <div class="period">${esc(x.period)}</div>
-       <div>
-         <div class="record-title">${esc(degree)}</div>
-         <div class="record-meta">${esc(institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-         <div class="record-desc">${esc(details)}</div>
-       </div>
-     </div>`;
+    const url=x.url || '#';
+    const title=currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
+    const authors=currentLang === 'ja' ? (x.authors_ja || x.authors || '') : (x.authors || '');
+    const venue=currentLang === 'ja' ? (x.venue_ja || x.venue || '') : (x.venue || '');
+    const linkLabel=currentLang === 'ja' ? (x.link_label_ja || x.link_label || '論文') : (x.link_label || 'Paper');
+    return `<article class="paper"><div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a></div><div class="paper-meta">${esc([authors,venue,x.year || ''].filter(Boolean).join(' · '))}</div><div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)} →</a></div></article>`;
   }).join('');
 
   document.getElementById('award-list').innerHTML=awards.map(x=>{
-    const title = currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
+    const title=currentLang === 'ja' ? (x.title_ja || x.title) : x.title;
     return `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(title)}</span></div>`;
   }).join('');
 
   applyTranslations(currentLang);
-}).catch(err=>{
-  console.error(err);
-});
+}).catch(err=>console.error(err));
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
-});
-
+document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyTranslations(btn.dataset.lang)));
 applyTranslations(currentLang);
 </script>
 </body>
