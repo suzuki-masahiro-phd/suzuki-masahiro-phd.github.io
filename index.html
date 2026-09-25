@@ -3,421 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masahiro Suzuki | Energy Transitions & Climate Policy</title>
-  <meta name="description" content="Masahiro Suzuki is a postdoctoral researcher at Chalmers University of Technology studying climate policy and energy transitions.">
-  <meta name="author" content="Masahiro Suzuki">
-  <meta property="og:title" content="Masahiro Suzuki">
-  <meta property="og:description" content="Postdoctoral researcher studying climate policy and energy transitions.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="masahiro-suzuki.jpg">
-
+  <title>Masahiro Suzuki</title>
+  <meta name="description" content="Academic website of Masahiro Suzuki.">
   <style>
-    :root {
-      --text: #20262d;
-      --muted: #65717c;
-      --line: #e2e6ea;
-      --link: #215d7a;
-      --soft: #f7f8f9;
-      --max: 980px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      background: #fff;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
-      font-size: 17px;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .wrap {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 42px 0 22px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      color: var(--text);
-      font-weight: 650;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 0.94rem;
-    }
-
-    .nav-links a { color: var(--text); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(230px, .75fr);
-      gap: 64px;
-      align-items: center;
-      padding: 72px 0 58px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.7rem, 7vw, 5.3rem);
-      line-height: .98;
-      letter-spacing: -0.055em;
-      font-weight: 700;
-    }
-
-    .role {
-      margin: 18px 0 0;
-      font-size: 1.15rem;
-      color: var(--muted);
-    }
-
-    .intro {
-      margin: 26px 0 0;
-      font-size: 1.17rem;
-      max-width: 680px;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 9px 14px;
-      border: 1px solid #cfd6dc;
-      border-radius: 8px;
-      color: var(--text);
-      background: #fff;
-      font-size: .95rem;
-    }
-
-    .button.primary {
-      background: var(--text);
-      border-color: var(--text);
-      color: #fff;
-    }
-
-    .button:hover {
-      text-decoration: none;
-      border-color: #9da8b1;
-    }
-
-    .photo {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: 50% 42%;
-      border-radius: 12px;
-      display: block;
-    }
-
-    section {
-      padding: 48px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 1.35rem;
-      letter-spacing: -0.025em;
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 34px;
-    }
-
-    .section-grid h2 {
-      margin: 0;
-    }
-
-    p { margin: 0 0 1em; }
-
-    .topics {
-      display: grid;
-      gap: 22px;
-    }
-
-    .topic h3 {
-      margin: 0 0 5px;
-      font-size: 1.03rem;
-    }
-
-    .topic p {
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .publication {
-      padding: 0 0 24px;
-      margin: 0 0 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .publication:last-child {
-      border-bottom: 0;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .pub-title {
-      font-weight: 650;
-      line-height: 1.45;
-    }
-
-    .pub-meta {
-      color: var(--muted);
-      margin-top: 4px;
-      font-size: .95rem;
-    }
-
-    .pub-links {
-      margin-top: 7px;
-      font-size: .95rem;
-    }
-
-    .recognition {
-      display: grid;
-      gap: 10px;
-    }
-
-    .recognition div {
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 16px;
-    }
-
-    .year {
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px 18px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 48px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    @media (max-width: 760px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 34px;
-        padding-top: 50px;
-      }
-
-      .photo {
-        width: min(78%, 360px);
-        order: -1;
-      }
-
-      .section-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-    }
+    :root{--text:#20262d;--muted:#65717c;--line:#e2e6ea;--link:#215d7a;--max:980px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;font-size:17px;background:#fff}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+    header{padding:38px 0 20px;border-bottom:1px solid var(--line)}
+    nav{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.brand{font-weight:650;color:var(--text)}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}.nav-links a{color:var(--text)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(230px,.75fr);gap:64px;align-items:center;padding:68px 0 56px}
+    h1{margin:0;font-size:clamp(2.7rem,7vw,5.2rem);line-height:.98;letter-spacing:-.055em}
+    .role{margin:18px 0 0;color:var(--muted);font-size:1.14rem}.intro{margin:26px 0 0;font-size:1.16rem}
+    .hero-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .button{display:inline-block;padding:9px 14px;border:1px solid #cfd6dc;border-radius:8px;color:var(--text)}
+    .button.primary{background:var(--text);border-color:var(--text);color:#fff}.button:hover{text-decoration:none}
+    .photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 42%;border-radius:12px;display:block}
+    section{padding:48px 0;border-top:1px solid var(--line)}
+    .section-grid{display:grid;grid-template-columns:180px minmax(0,1fr);gap:34px}
+    h2{margin:0;font-size:1.35rem;letter-spacing:-.025em} h3{margin:0 0 5px;font-size:1.03rem}
+    p{margin:0 0 1em}.topics{display:grid;gap:22px}.topic p,.pub-meta{color:var(--muted)}
+    .publication{padding:0 0 24px;margin:0 0 24px;border-bottom:1px solid var(--line)}
+    .publication:last-child{border-bottom:0}.pub-title{font-weight:650;line-height:1.45}.pub-meta{margin-top:4px;font-size:.95rem}
+    .pub-links{margin-top:7px;font-size:.95rem}.recognition{display:grid;gap:10px}.award{display:grid;grid-template-columns:58px 1fr;gap:16px}
+    .year{color:var(--muted)}.contact-links{display:flex;flex-wrap:wrap;gap:9px 18px}
+    footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:34px;padding-top:48px}.photo{width:min(78%,360px);order:-1}.section-grid{grid-template-columns:1fr;gap:16px}}
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <a class="brand" href="#">Masahiro Suzuki</a>
-        <div class="nav-links">
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+<header><div class="wrap"><nav><a class="brand" href="#" id="brand"></a><div class="nav-links"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav></div></header>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1 id="name"></h1>
+      <p class="role"><span id="position"></span> · <span id="institution"></span></p>
+      <p class="intro" id="intro"></p>
+      <div class="hero-links">
+        <a class="button primary" id="cv" href="#">CV</a>
+        <a class="button" id="scholar" href="#">Google Scholar</a>
+        <a class="button" id="email" href="#">Email</a>
+      </div>
     </div>
-  </header>
+    <img class="photo" id="photo" alt="Portrait of Masahiro Suzuki">
+  </div>
 
-  <main class="wrap">
-    <div class="hero">
-      <div>
-        <h1>Masahiro Suzuki</h1>
-        <p class="role">Postdoctoral Researcher · Chalmers University of Technology</p>
+  <section id="research"><div class="section-grid"><h2>Research</h2><div class="topics" id="research-list"></div></div></section>
+  <section id="publications"><div class="section-grid"><h2>Selected publications</h2><div><div id="publication-list"></div><p><a id="scholar-more" href="#">View all publications on Google Scholar →</a></p></div></div></section>
+  <section id="about"><div class="section-grid"><h2>About</h2><div><div id="about-copy"></div><div class="recognition" id="award-list"></div></div></div></section>
+  <section id="contact"><div class="section-grid"><h2>Contact</h2><div><p>For research-related inquiries, please feel free to get in touch.</p><div class="contact-links"><a id="contact-email"></a><a id="contact-scholar">Google Scholar</a><a id="contact-github">GitHub</a><a id="contact-cv">CV (PDF)</a></div></div></div></section>
+</main>
+<footer><div class="wrap">© 2026 <span id="footer-name"></span></div></footer>
 
-        <p class="intro">
-          I study how climate policies and energy transitions evolve together, and whether
-          historical rates of change are consistent with the pace required to meet climate goals.
-          My work focuses on political acceleration, energy-transition dynamics, and the gap
-          between policy ambition and realized deployment.
-        </p>
+<script>
+fetch('data/site.json')
+  .then(r => r.json())
+  .then(d => {
+    document.title = `${d.name} | Academic website`;
+    const setText = (id, value) => document.getElementById(id).textContent = value || '';
+    setText('brand', d.name); setText('name', d.name); setText('position', d.position);
+    setText('institution', d.institution); setText('intro', d.intro); setText('footer-name', d.name);
 
-        <div class="hero-links">
-          <a class="button primary" href="Masahiro-Suzuki-CV.pdf">CV</a>
-          <a class="button" href="https://scholar.google.com/citations?user=iCK54XQAAAAJ&hl=en">Google Scholar</a>
-          <a class="button" href="mailto:masahiro.suzuki@chalmers.se">Email</a>
-        </div>
-      </div>
+    document.getElementById('photo').src = d.photo;
+    document.getElementById('cv').href = d.cv;
+    document.getElementById('scholar').href = d.google_scholar;
+    document.getElementById('email').href = `mailto:${d.email}`;
+    document.getElementById('scholar-more').href = d.google_scholar;
+    document.getElementById('contact-email').href = `mailto:${d.email}`;
+    document.getElementById('contact-email').textContent = d.email;
+    document.getElementById('contact-scholar').href = d.google_scholar;
+    document.getElementById('contact-github').href = d.github;
+    document.getElementById('contact-cv').href = d.cv;
 
-      <img class="photo" src="masahiro-suzuki.jpg" alt="Portrait of Masahiro Suzuki">
-    </div>
+    document.getElementById('research-list').innerHTML = (d.research || []).map(x =>
+      `<div class="topic"><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p></div>`
+    ).join('');
 
-    <section id="research">
-      <div class="section-grid">
-        <h2>Research</h2>
-        <div class="topics">
-          <div class="topic">
-            <h3>Climate policy and energy transitions</h3>
-            <p>
-              I analyse how policy interventions interact with the evolution of energy systems,
-              with particular attention to whether policy has measurably accelerated transitions.
-            </p>
-          </div>
+    document.getElementById('publication-list').innerHTML = (d.publications || []).map(x =>
+      `<article class="publication"><div class="pub-title">${esc(x.title)}</div>
+       <div class="pub-meta">${esc(x.authors)} · ${esc(x.venue)} · ${esc(x.year)}</div>
+       <div class="pub-links"><a href="${attr(x.url)}">Paper</a></div></article>`
+    ).join('');
 
-          <div class="topic">
-            <h3>Political acceleration</h3>
-            <p>
-              My doctoral research examined historical interventions in the G7 and the EU and
-              how they changed the pace and direction of energy transitions.
-            </p>
-          </div>
+    document.getElementById('about-copy').innerHTML = (d.about || []).map(x => `<p>${esc(x)}</p>`).join('');
+    document.getElementById('award-list').innerHTML = (d.awards || []).map(x =>
+      `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(x.title)}</span></div>`
+    ).join('');
+  })
+  .catch(err => {
+    console.error(err);
+    document.body.insertAdjacentHTML('beforeend','<p style="padding:20px">Could not load site content.</p>');
+  });
 
-          <div class="topic">
-            <h3>Targets, ambition, and delivery</h3>
-            <p>
-              I study the relationship between long-term climate targets, near-term renewable
-              ambitions, and realized deployment, including how expectations compare with
-              historically observed rates of change.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="section-grid">
-        <h2>Selected publications</h2>
-        <div>
-          <article class="publication">
-            <div class="pub-title">
-              Have climate policies accelerated energy transitions? Historical evolution of
-              electricity mix in the G7 and the EU compared to net-zero targets
-            </div>
-            <div class="pub-meta">
-              Jewell, J., Cherp, A., Geels, F. W., Suzuki, M., et al. · Nature Reviews Earth &amp; Environment · 2026
-            </div>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1038/s43017-026-00765-3">DOI</a>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div class="pub-title">
-              Have climate policies accelerated energy transitions? Historical evolution of
-              electricity mix in the G7 and the EU compared to net-zero targets
-            </div>
-            <div class="pub-meta">
-              Suzuki, M., Jewell, J., Cherp, A. · Energy Research &amp; Social Science · 2023
-            </div>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1016/j.erss.2023.103281">DOI</a>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div class="pub-title">
-              Comparing electricity transitions: A historical analysis of nuclear, wind and
-              solar power in Germany and Japan
-            </div>
-            <div class="pub-meta">
-              Cherp, A., Vinichenko, V., Jewell, J., Suzuki, M., Antal, M. · Energy Policy · 2017
-            </div>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1016/j.enpol.2016.10.044">DOI</a>
-            </div>
-          </article>
-
-          <p>
-            <a href="https://scholar.google.com/citations?user=iCK54XQAAAAJ&hl=en">View all publications on Google Scholar →</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-grid">
-        <h2>About</h2>
-        <div>
-          <p>
-            I am a postdoctoral researcher at Chalmers University of Technology. I completed my
-            PhD in Environmental Sciences and Policy at Central European University in 2024,
-            where my dissertation examined political acceleration in energy transitions.
-          </p>
-          <p>
-            Before my PhD, I worked on climate-policy research at the Institute for Global
-            Environmental Strategies and participated in international climate negotiations as
-            a national delegate of Japan, including COP22.
-          </p>
-
-          <div class="recognition">
-            <div><span class="year">2026</span><span>Best Paper Prize, Energy-PPG at ECPR General Conference</span></div>
-            <div><span class="year">2024</span><span>Best Dissertation Award, Central European University</span></div>
-            <div><span class="year">2024</span><span>Early Career Scientist Award, Energy Research &amp; Social Science</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-grid">
-        <h2>Contact</h2>
-        <div>
-          <p>For research-related inquiries, please feel free to get in touch.</p>
-          <div class="contact-links">
-            <a href="mailto:masahiro.suzuki@chalmers.se">masahiro.suzuki@chalmers.se</a>
-            <a href="https://scholar.google.com/citations?user=iCK54XQAAAAJ&hl=en">Google Scholar</a>
-            <a href="https://github.com/suzuki-masahiro-phd">GitHub</a>
-            <a href="Masahiro-Suzuki-CV.pdf">CV (PDF)</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © 2026 Masahiro Suzuki
-    </div>
-  </footer>
+function esc(s='') {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+function attr(s='') {
+  return String(s).replace(/"/g, '&quot;');
+}
+</script>
 </body>
 </html>

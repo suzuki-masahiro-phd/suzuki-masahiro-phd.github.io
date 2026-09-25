@@ -1,0 +1,66 @@
+{
+  "name": "Masahiro Suzuki",
+  "position": "Postdoctoral Researcher",
+  "institution": "Chalmers University of Technology",
+  "intro": "I study how climate policies and energy transitions evolve together, and whether historical rates of change are consistent with the pace required to meet climate goals. My work focuses on political acceleration, energy-transition dynamics, and the gap between policy ambition and realized deployment.",
+  "photo": "/media/images/masahiro-suzuki.jpg",
+  "cv": "/media/docs/Masahiro-Suzuki-CV.pdf",
+  "email": "masahiro.suzuki@chalmers.se",
+  "google_scholar": "https://scholar.google.com/citations?user=iCK54XQAAAAJ&hl=en",
+  "github": "https://github.com/suzuki-masahiro-phd",
+  "research": [
+    {
+      "title": "Climate policy and energy transitions",
+      "description": "I analyse how policy interventions interact with the evolution of energy systems, with particular attention to whether policy has measurably accelerated transitions."
+    },
+    {
+      "title": "Political acceleration",
+      "description": "My doctoral research examined historical interventions in the G7 and the EU and how they changed the pace and direction of energy transitions."
+    },
+    {
+      "title": "Targets, ambition, and delivery",
+      "description": "I study the relationship between long-term climate targets, near-term renewable ambitions, and realized deployment, including how expectations compare with historically observed rates of change."
+    }
+  ],
+  "publications": [
+    {
+      "title": "Have climate policies accelerated energy transitions? Historical evolution of electricity mix in the G7 and the EU compared to net-zero targets",
+      "authors": "Jewell, J., Cherp, A., Geels, F. W., Suzuki, M., et al.",
+      "venue": "Nature Reviews Earth & Environment",
+      "year": "2026",
+      "url": "https://doi.org/10.1038/s43017-026-00765-3"
+    },
+    {
+      "title": "Have climate policies accelerated energy transitions? Historical evolution of electricity mix in the G7 and the EU compared to net-zero targets",
+      "authors": "Suzuki, M., Jewell, J., Cherp, A.",
+      "venue": "Energy Research & Social Science",
+      "year": "2023",
+      "url": "https://doi.org/10.1016/j.erss.2023.103281"
+    },
+    {
+      "title": "Comparing electricity transitions: A historical analysis of nuclear, wind and solar power in Germany and Japan",
+      "authors": "Cherp, A., Vinichenko, V., Jewell, J., Suzuki, M., Antal, M.",
+      "venue": "Energy Policy",
+      "year": "2017",
+      "url": "https://doi.org/10.1016/j.enpol.2016.10.044"
+    }
+  ],
+  "about": [
+    "I am a postdoctoral researcher at Chalmers University of Technology. I completed my PhD in Environmental Sciences and Policy at Central European University in 2024, where my dissertation examined political acceleration in energy transitions.",
+    "Before my PhD, I worked on climate-policy research at the Institute for Global Environmental Strategies and participated in international climate negotiations as a national delegate of Japan, including COP22."
+  ],
+  "awards": [
+    {
+      "year": "2026",
+      "title": "Best Paper Prize, Energy-PPG at ECPR General Conference"
+    },
+    {
+      "year": "2024",
+      "title": "Best Dissertation Award, Central European University"
+    },
+    {
+      "year": "2024",
+      "title": "Early Career Scientist Award, Energy Research & Social Science"
+    }
+  ]
+}
