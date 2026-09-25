@@ -1,0 +1,136 @@
+media:
+  - name: images
+    label: Images
+    input: media/images
+    output: /media/images
+    categories: [image]
+
+  - name: documents
+    label: Documents
+    input: media/docs
+    output: /media/docs
+    categories: [document]
+
+content:
+  - name: homepage
+    label: Homepage
+    type: file
+    path: data/site.json
+    format: json
+
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: position
+        label: Position
+        type: string
+        required: true
+
+      - name: institution
+        label: Institution
+        type: string
+        required: true
+
+      - name: intro
+        label: Introduction
+        type: text
+        required: true
+
+      - name: photo
+        label: Profile photo
+        type: image
+        options:
+          media: images
+
+      - name: cv
+        label: CV (PDF)
+        type: file
+        options:
+          media: documents
+          extensions: [pdf]
+
+      - name: email
+        label: Email
+        type: string
+
+      - name: google_scholar
+        label: Google Scholar URL
+        type: string
+
+      - name: github
+        label: GitHub URL
+        type: string
+
+      - name: research
+        label: Research themes
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+
+          - name: description
+            label: Description
+            type: text
+            required: true
+
+      - name: publications
+        label: Selected publications
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+        fields:
+          - name: title
+            label: Title
+            type: text
+            required: true
+
+          - name: authors
+            label: Authors
+            type: text
+
+          - name: venue
+            label: Journal / venue
+            type: string
+
+          - name: year
+            label: Year
+            type: string
+
+          - name: url
+            label: Paper URL / DOI
+            type: string
+
+      - name: about
+        label: About paragraphs
+        type: text
+        list: true
+
+      - name: awards
+        label: Selected awards
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} — {title}"
+
+        fields:
+          - name: year
+            label: Year
+            type: string
+
+          - name: title
+            label: Award
+            type: string
