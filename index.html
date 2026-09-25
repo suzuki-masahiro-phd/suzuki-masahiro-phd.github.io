@@ -119,67 +119,73 @@ footer{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);f
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 
 Promise.all([
- fetch('data/profile.json').then(r=>r.json()),
- fetch('data/research.json').then(r=>r.json()),
- fetch('data/publications.json').then(r=>r.json()),
- fetch('data/employment.json').then(r=>r.json()),
- fetch('data/education.json').then(r=>r.json()),
- fetch('data/awards.json').then(r=>r.json())
+  fetch('data/profile.json').then(r=>r.json()),
+  fetch('data/research.json').then(r=>r.json()),
+  fetch('data/publications.json').then(r=>r.json()),
+  fetch('data/employment.json').then(r=>r.json()),
+  fetch('data/education.json').then(r=>r.json()),
+  fetch('data/awards.json').then(r=>r.json())
 ]).then(([p,r,pubs,employment,education,awards])=>{
- document.title=p.name+' | Academic website';
- for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
- document.getElementById('position').textContent=p.position;
- document.getElementById('institution').textContent=p.institution;
- document.getElementById('intro').textContent=p.intro;
- document.getElementById('photo').src=p.photo;
- document.getElementById('cv').href=p.cv;
- document.getElementById('scholar').href=p.google_scholar;
- document.getElementById('email').href='mailto:'+p.email;
- document.getElementById('all-pubs').href=p.google_scholar;
- document.getElementById('contact-email').href='mailto:'+p.email;
- document.getElementById('contact-email').textContent=p.email;
- document.getElementById('contact-scholar').href=p.google_scholar;
- document.getElementById('contact-cv').href=p.cv;
+  document.title=p.name+' | Academic website';
+  for(const id of ['brand','name','footer-name']) document.getElementById(id).textContent=p.name;
+  document.getElementById('position').textContent=p.position;
+  document.getElementById('institution').textContent=p.institution;
+  document.getElementById('intro').textContent=p.intro;
+  document.getElementById('photo').src=p.photo;
+  document.getElementById('cv').href=p.cv;
+  document.getElementById('scholar').href=p.google_scholar;
+  document.getElementById('email').href='mailto:'+p.email;
+  document.getElementById('all-pubs').href=p.google_scholar;
+  document.getElementById('contact-email').href='mailto:'+p.email;
+  document.getElementById('contact-email').textContent=p.email;
+  document.getElementById('contact-scholar').href=p.google_scholar;
+  document.getElementById('contact-cv').href=p.cv;
 
- document.getElementById('research-list').innerHTML=r.map(x=>
-   `<div><h3>${esc(x.title)}</h3><div class="muted">${esc(x.description)}</div></div>`
- ).join('');
+  document.getElementById('research-list').innerHTML=r.map(x=>
+    `<div><h3>${esc(x.title)}</h3><div class="muted">${esc(x.description)}</div></div>`
+  ).join('');
 
- document.getElementById('publication-list').innerHTML=pubs.map(x=>
-   `<article class="paper">
-      <div class="paper-title">${esc(x.title)}</div>
-      <div class="paper-meta">${esc(x.authors)} · ${esc(x.venue)} · ${esc(x.year)}</div>
-      <div class="paper-link"><a href="${esc(x.url)}">${esc(x.link_label || 'Paper')} →</a></div>
-    </article>`
- ).join('');
+  document.getElementById('publication-list').innerHTML=pubs.map(x=>{
+    const url = x.url || '#';
+    const title = esc(x.title);
+    const authors = esc(x.authors || '');
+    const venue = esc(x.venue || '');
+    const year = esc(x.year || '');
+    const meta = [authors, venue, year].filter(Boolean).join(' · ');
+    return `<article class="paper">
+       <div class="paper-title"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${title}</a></div>
+       <div class="paper-meta">${meta}</div>
+       <div class="paper-link"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(x.link_label || 'Paper')} →</a></div>
+     </article>`;
+  }).join('');
 
- document.getElementById('employment-list').innerHTML=employment.map(x=>
-   `<div class="record">
-      <div class="period">${esc(x.period)}</div>
-      <div>
-        <div class="record-title">${esc(x.role)}</div>
-        <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-        <div class="record-desc">${esc(x.description)}</div>
-      </div>
-    </div>`
- ).join('');
+  document.getElementById('employment-list').innerHTML=employment.map(x=>
+    `<div class="record">
+       <div class="period">${esc(x.period)}</div>
+       <div>
+         <div class="record-title">${esc(x.role)}</div>
+         <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
+         <div class="record-desc">${esc(x.description)}</div>
+       </div>
+     </div>`
+  ).join('');
 
- document.getElementById('education-list').innerHTML=education.map(x=>
-   `<div class="record">
-      <div class="period">${esc(x.period)}</div>
-      <div>
-        <div class="record-title">${esc(x.degree)}</div>
-        <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
-        <div class="record-desc">${esc(x.details)}</div>
-      </div>
-    </div>`
- ).join('');
+  document.getElementById('education-list').innerHTML=education.map(x=>
+    `<div class="record">
+       <div class="period">${esc(x.period)}</div>
+       <div>
+         <div class="record-title">${esc(x.degree)}</div>
+         <div class="record-meta">${esc(x.institution)}${x.location ? ' · '+esc(x.location) : ''}</div>
+         <div class="record-desc">${esc(x.details)}</div>
+       </div>
+     </div>`
+  ).join('');
 
- document.getElementById('award-list').innerHTML=awards.map(x=>
-   `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(x.title)}</span></div>`
- ).join('');
+  document.getElementById('award-list').innerHTML=awards.map(x=>
+    `<div class="award"><span class="year">${esc(x.year)}</span><span>${esc(x.title)}</span></div>`
+  ).join('');
 }).catch(err=>{
- console.error(err);
+  console.error(err);
 });
 </script>
 </body>
