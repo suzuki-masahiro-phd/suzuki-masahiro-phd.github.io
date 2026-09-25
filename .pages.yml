@@ -4,7 +4,6 @@ media:
     input: media/images
     output: /media/images
     categories: [image]
-
   - name: documents
     label: Documents
     input: media/docs
@@ -17,7 +16,6 @@ content:
     type: file
     path: data/site.json
     format: json
-
     fields:
       - name: name
         label: Name
@@ -71,13 +69,11 @@ content:
           collapsible:
             collapsed: true
             summary: "{title}"
-
         fields:
           - name: title
             label: Title
             type: string
             required: true
-
           - name: description
             label: Description
             type: text
@@ -90,25 +86,20 @@ content:
           collapsible:
             collapsed: true
             summary: "{title}"
-
         fields:
           - name: title
             label: Title
             type: text
             required: true
-
           - name: authors
             label: Authors
             type: text
-
           - name: venue
             label: Journal / venue
             type: string
-
           - name: year
             label: Year
             type: string
-
           - name: url
             label: Paper URL / DOI
             type: string
@@ -125,12 +116,10 @@ content:
           collapsible:
             collapsed: true
             summary: "{year} — {title}"
-
         fields:
           - name: year
             label: Year
             type: string
-
           - name: title
             label: Award
             type: string
