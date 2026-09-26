@@ -20,7 +20,12 @@
     "url": "https://openresearch.ceu.edu/server/api/core/bitstreams/9b7edd41-a142-441a-b437-04e1c87f55ea/content",
     "link_label": "Link",
     "kind": "Dissertation",
-    "kind_ja": "博士論文"
+    "kind_ja": "博士論文",
+    "figure": "media/images/dissertation-required-rates.png",
+    "figure_alt": "Comparison of required annual change rates with historical top 10 national precedents",
+    "figure_alt_ja": "必要な年間変化率と各国の歴史的上位10事例の比較",
+    "figure_caption": "Figure from the dissertation",
+    "figure_caption_ja": "博士論文からの図"
   },
   {
     "title": "Have climate policies accelerated energy transitions? Historical evolution of electricity mix in the G7 and the EU compared to net-zero targets",
