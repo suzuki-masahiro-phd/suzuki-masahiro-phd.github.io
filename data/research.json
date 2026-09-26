@@ -1,14 +1,20 @@
 [
   {
     "title": "Climate policy and energy transitions",
-    "description": "I analyse how policy interventions interact with the evolution of energy systems, with particular attention to whether policy has measurably accelerated transitions."
+    "description": "Climate change mitigation requires energy systems to decarbonise much faster than they have historically. I study whether and to what extent policy can accelerate these transitions, while accounting for shifting national priorities and changing industry and public interests.",
+    "title_ja": "気候政策とエネルギー転換",
+    "description_ja": "気候変動の緩和には、歴史的に見られたよりもはるかに速いエネルギーシステムの脱炭素化が必要です。私は、各国の優先課題や産業・市民の関心が変化する中で、政策がエネルギー転換をどの程度、どのような条件で加速できるのかを研究しています。"
   },
   {
     "title": "Political acceleration",
-    "description": "My doctoral research examined historical interventions in the G7 and the EU and how they changed the pace and direction of energy transitions."
+    "description": "My doctoral research examined historical policy interventions in the G7 and the EU and how they changed the pace and direction of energy transitions. I use historical evidence to identify when policy has measurably accelerated technological change and when it has not.",
+    "title_ja": "政治による加速",
+    "description_ja": "博士研究では、G7とEUにおける歴史的な政策介入がエネルギー転換の速度と方向をどのように変えたかを分析しました。歴史的証拠を用いて、政策が技術変化を実際に加速した場合と、そうでなかった場合を検討しています。"
   },
   {
     "title": "Targets, ambition, and delivery",
-    "description": "I study the relationship between long-term climate targets, near-term renewable ambitions, and realized deployment, including how expectations compare with historically observed rates of change."
+    "description": "I study how long-term climate targets and near-term renewable ambitions relate to realised deployment. A particular focus is whether stated ambitions imply rates of change that are consistent with, or substantially faster than, historical experience.",
+    "title_ja": "目標・野心・実行",
+    "description_ja": "長期的な気候目標や短期的な再生可能エネルギー目標が、実際の導入とどのように関係するかを研究しています。特に、掲げられた目標が歴史的経験と整合的な変化率を意味するのか、それとも大幅に速い変化を必要とするのかに注目しています。"
   }
 ]

@@ -4,20 +4,32 @@
     "degree": "PhD (Summa Cum Laude) in Environmental Sciences and Policy",
     "institution": "Central European University (CEU)",
     "location": "Vienna",
-    "details": "Dissertation: Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets."
+    "details": "Dissertation: Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets.",
+    "degree_ja": "環境科学・政策 博士（Summa Cum Laude）",
+    "institution_ja": "中央ヨーロッパ大学（CEU）",
+    "location_ja": "ウィーン",
+    "details_ja": "博士論文：Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets."
   },
   {
     "period": "2012–2014",
     "degree": "MSc (Distinction) in Environmental Sciences, Policy and Management (MESPOM)",
     "institution": "Joint degree from CEU, University of Manchester, Lund University, and University of the Aegean",
     "location": "",
-    "details": "Thesis: Adherence to the Past or Hope for the Future?: The Historical Development of Japan’s Energy Politics and its Implications for Future Nuclear Policy."
+    "details": "Thesis: Adherence to the Past or Hope for the Future?: The Historical Development of Japan’s Energy Politics and its Implications for Future Nuclear Policy.",
+    "degree_ja": "環境科学・政策・マネジメント 修士（Distinction, MESPOM）",
+    "institution_ja": "CEU、マンチェスター大学、ルンド大学、エーゲ大学による共同学位",
+    "location_ja": "",
+    "details_ja": "修士論文：Adherence to the Past or Hope for the Future?: The Historical Development of Japan’s Energy Politics and its Implications for Future Nuclear Policy."
   },
   {
     "period": "2005–2009",
     "degree": "BA in International Liberal Arts Studies",
     "institution": "Waseda University",
     "location": "Japan",
-    "details": "Supplemented by a one-year exchange program at Kalamazoo College, USA."
+    "details": "Supplemented by a one-year exchange program at Kalamazoo College, USA.",
+    "degree_ja": "国際教養学士",
+    "institution_ja": "早稲田大学",
+    "location_ja": "日本",
+    "details_ja": "米国Kalamazoo Collegeへの1年間の交換留学を含む。"
   }
 ]

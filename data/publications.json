@@ -5,7 +5,12 @@
     "venue": "Nature Reviews Earth & Environment",
     "year": "2026",
     "url": "https://doi.org/10.1038/s43017-026-00765-3",
-    "link_label": "Link"
+    "link_label": "Link",
+    "kind": "Review",
+    "kind_ja": "レビュー論文",
+    "figure": "media/images/technology-growth-phases.png",
+    "figure_alt": "Four phases of technology growth and their mechanisms",
+    "figure_alt_ja": "技術成長の4つの段階とそのメカニズム"
   },
   {
     "title": "Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets",
@@ -13,7 +18,9 @@
     "venue": "Doctoral Dissertation, Central European University",
     "year": "2024",
     "url": "https://openresearch.ceu.edu/server/api/core/bitstreams/9b7edd41-a142-441a-b437-04e1c87f55ea/content",
-    "link_label": "Link"
+    "link_label": "Link",
+    "kind": "Dissertation",
+    "kind_ja": "博士論文"
   },
   {
     "title": "Have climate policies accelerated energy transitions? Historical evolution of electricity mix in the G7 and the EU compared to net-zero targets",
@@ -21,6 +28,11 @@
     "venue": "Energy Research & Social Science",
     "year": "2023",
     "url": "https://doi.org/10.1016/j.erss.2023.103281",
-    "link_label": "Link"
+    "link_label": "Link",
+    "kind": "Article",
+    "kind_ja": "論文",
+    "figure": "media/images/energy-transition-pathways.png",
+    "figure_alt": "Historical low-carbon and fossil-fuel change rates compared with the 2020–2035 1.5°C pathway target",
+    "figure_alt_ja": "歴史的な低炭素電源・化石燃料の変化率と2020～2035年の1.5°C経路目標の比較"
   }
 ]
