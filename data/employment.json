@@ -7,7 +7,8 @@
     "description": "Analysing the co-evolution of climate policies and energy transitions.",
     "role_ja": "博士研究員",
     "institution_ja": "チャルマース工科大学",
-    "location_ja": "ヨーテボリ"
+    "location_ja": "ヨーテボリ",
+    "institution_url": "https://www.chalmers.se/en/"
   },
   {
     "period": "2019–2024",
@@ -17,7 +18,8 @@
     "description": "Assessed progress of climate mitigation efforts in major economies through the Climate Action Tracker.",
     "role_ja": "客員研究員",
     "institution_ja": "NewClimate Institute",
-    "location_ja": "ケルン"
+    "location_ja": "ケルン",
+    "institution_url": "https://newclimate.org/"
   },
   {
     "period": "2017–2024",
@@ -27,17 +29,19 @@
     "description": "Doctoral research on climate policy and the acceleration of energy transitions.",
     "role_ja": "博士課程研究員",
     "institution_ja": "中央ヨーロッパ大学",
-    "location_ja": ""
+    "location_ja": "",
+    "institution_url": "https://www.ceu.edu/"
   },
   {
     "period": "2014–2017",
     "role": "Policy Researcher",
-    "institution": "Institute for Global Environmental Strategies",
+    "institution": "Institute for Global Environmental Strategies (IGES)",
     "location": "Hayama",
     "description": "Participated in international negotiations, including COP, as a national delegate focusing on long-term strategy and the global stocktake.",
     "role_ja": "政策研究員",
     "institution_ja": "地球環境戦略研究機関（IGES）",
-    "location_ja": "葉山"
+    "location_ja": "葉山",
+    "institution_url": "https://www.iges.or.jp/en"
   },
   {
     "period": "2009–2012",
@@ -47,6 +51,7 @@
     "description": "Conducted market analysis, assessed business performance relative to market leaders, and provided consultation services.",
     "role_ja": "マーケティング・セールス・エグゼクティブ",
     "institution_ja": "SAP Japan",
-    "location_ja": "東京"
+    "location_ja": "東京",
+    "institution_url": "https://www.sap.com/japan/index.html"
   }
 ]
