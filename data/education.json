@@ -8,7 +8,8 @@
     "degree_ja": "博士：環境科学・政策学（Summa Cum Laude）",
     "institution_ja": "CEU",
     "location_ja": "ウィーン",
-    "details_ja": "博士論文：Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets."
+    "details_ja": "博士論文：Political Acceleration in Energy Transitions: Historical Interventions and Their Outcomes in the G7 and the EU, compared to Net-Zero Targets.",
+    "institution_url": "https://www.ceu.edu/"
   },
   {
     "period": "2012–2014",
@@ -19,7 +20,8 @@
     "degree_ja": "修士：環境科学・政策学・経営学（Distinction, MESPOM）",
     "institution_ja": "CEU、マンチェスター大学、ルンド大学、エーゲ海大学による共同学位",
     "location_ja": "",
-    "details_ja": "修士論文：Adherence to the Past or Hope for the Future?: The Historical Development of Japan’s Energy Politics and its Implications for Future Nuclear Policy."
+    "details_ja": "修士論文：Adherence to the Past or Hope for the Future?: The Historical Development of Japan’s Energy Politics and its Implications for Future Nuclear Policy.",
+    "institution_url": "https://mespom.eu/"
   },
   {
     "period": "2005–2009",
@@ -30,6 +32,7 @@
     "degree_ja": "学士：国際教養学",
     "institution_ja": "早稲田大学",
     "location_ja": "日本",
-    "details_ja": "米国Kalamazoo Collegeへの1年間の交換留学を含む。"
+    "details_ja": "米国Kalamazoo Collegeへの1年間の交換留学を含む。",
+    "institution_url": "https://www.waseda.jp/top/en/"
   }
 ]
